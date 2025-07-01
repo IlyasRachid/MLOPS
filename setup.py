@@ -4,7 +4,7 @@ from typing import List
 HYPHEN_E_DOT = '-e .'
 
 def get_requirements(file_path) -> List[str]:
-    with open('file_path', 'r') as file:
+    with open(file_path, 'r') as file:
         requirements = file.readlines()
         requirements = [req.replace('\n', '') for req in requirements]
         if HYPHEN_E_DOT in requirements:

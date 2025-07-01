@@ -1,7 +1,6 @@
 - Data Management -> DVC
 - Version Control -> Git
 - Automation (Pipelines) -> Jenkins
-- Experimentation -> MLflow
 - CI/CD -> GitHub Actions
 - Monitoring and Logging -> Prometheus
 - Retraining -> Airflow
