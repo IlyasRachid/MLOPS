@@ -9,9 +9,9 @@ from datetime import datetime
 
 @dataclass
 class DataIngestionConfig:
-    raw_data_path: str = os.path.join('data', 'raw', f'top_movies.csv-{datetime.now().strftime("%Y-%m-%d-%H-%M-%S")}')
-    training_data_path: str = os.path.join('data', 'train', f'training_data.csv-{datetime.now().strftime("%Y-%m-%d-%H-%M-%S")}')
-    test_data_path: str = os.path.join('data', 'test', f'test_data.csv-{datetime.now().strftime("%Y-%m-%d-%H-%M-%S")}')
+    raw_data_path: str = os.path.join('data', 'raw', f'top_movies-{datetime.now().strftime("%Y-%m-%d-%H-%M-%S")}.csv')
+    training_data_path: str = os.path.join('data', 'train', f'training_data-{datetime.now().strftime("%Y-%m-%d-%H-%M-%S")}.csv')
+    test_data_path: str = os.path.join('data', 'test', f'test_data-{datetime.now().strftime("%Y-%m-%d-%H-%M-%S")}.csv')
 
 class DataIngestion:
     def __init__(self):
