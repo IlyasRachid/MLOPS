@@ -1,0 +1,5 @@
+outs:
+- md5: 0dee53866ef34a187b6ce8a0fcdfcffc
+  size: 860
+  hash: md5
+  path: genre_encoder_20250702_053021.pkl

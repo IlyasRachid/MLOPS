@@ -5,4 +5,5 @@ matplotlib
 scikit-learn
 dill
 Flask
+sentence_transformers
 #-e .
