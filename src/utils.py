@@ -5,6 +5,9 @@ from src.exception import CustomException
 import dill
 import pandas as pd
 
+from src.logger import logging
+from src.exception import CustomException
+
 
 def save_object(file_path, obj):
     try:
@@ -50,4 +53,3 @@ def handle_missing_values(df: pd.DataFrame, target_col: str, text_cols: list = N
     df[target_col] = df[target_col].fillna(fill_target)
 
     return df.reset_index(drop=True)
-        
