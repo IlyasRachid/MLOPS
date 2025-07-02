@@ -14,7 +14,7 @@ from src.exception import CustomException
 
 @dataclass
 class ModelTrainerConfig:
-    model_path: str = os.path.join('artifacts', 'models', f'model_{datetime.now().strftime("%Y%m%d_%H%M%S")}.h5')
+    model_path: str = os.path.join('artifacts', 'models', f'model_{datetime.now().strftime("%Y%m%d_%H%M%S")}.keras')
 
 class ModelTrainer:
     def __init__(self, data_path: str):
@@ -71,13 +71,12 @@ class ModelTrainer:
             logging.info(f"Model evaluation completed. Test loss: {test_loss}, Test accuracy: {test_accuracy}")
 
             return (
-                test_loss, 
-                test_accuracy
+                self.config.model_path
             )
         except Exception as e:
             raise CustomException(e, sys)
         
-if __name__ == "__main__":
-    trainer = ModelTrainer(data_path='artifacts/transformed_data/transformed_data_20250702_053021.npz')
-    trainer.train_and_save_model()
+# if __name__ == "__main__":
+#     trainer = ModelTrainer(data_path='artifacts/transformed_data/transformed_data_20250702_053021.npz')
+#     trainer.train_and_save_model()
 

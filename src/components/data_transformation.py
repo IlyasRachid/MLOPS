@@ -29,17 +29,12 @@ class DataTransformation:
 
     def save_embedder_info(self):
         try:
-            metadata = {
-                "model_class": self.embedder_model.__class__.__name__,
-                "huggingface_model_id": "sentence-transformers/all-MiniLM-L6-v2",
-                "source": "HuggingFace Hub",
-                "saved_at": self.data_transformation_config.embedder_model_path,
-            }
-
+            metadata = "all-MiniLM-L6-v2"
             with open(self.data_transformation_config.embedder_model_path, 'w') as file:
-                json.dump(metadata, file, indent=4)
+                file.write(metadata)
 
             logging.info(f"Embedder model metadata saved at {self.data_transformation_config.embedder_model_path}")
+            
         except Exception as e:
             raise CustomException("Error saving embedder model metadata", sys)
 
@@ -89,15 +84,14 @@ class DataTransformation:
             self.save_embedder_info()
             logging.info("Data transformation process completed successfully")
             return (
-                X_train_final, y_train,
-                X_test_final, y_test,
+                self.data_transformation_config.transformed_data_path
             )
         except Exception as e:
             raise CustomException(e, sys)
         
-if __name__=="__main__":
-    data_transformation = DataTransformation()
-    data_transformation.initiate_data_transformation(
-        train_path='data/train/training_data.csv-2025-07-01-06-17-21',
-        test_path='data/test/test_data.csv-2025-07-01-06-17-21'
-    )
+# if __name__=="__main__":
+#     data_transformation = DataTransformation()
+#     data_transformation.initiate_data_transformation(
+#         train_path='data/train/training_data.csv-2025-07-01-06-17-21',
+#         test_path='data/test/test_data.csv-2025-07-01-06-17-21'
+#     )
